@@ -4,6 +4,8 @@ import { Container, InputGroup, FormControl, Button, Alert, Spinner } from 'reac
 import { ContentContainer, Form, AdsBlock } from './styles';
 import ShortenerService from '../../services/shortenerService';
 
+import vars from '../../configs/vars';
+
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -71,7 +73,7 @@ class HomePage extends React.Component {
                   <InputGroup className="mb-3">
                   <FormControl
                   autoFocus={true}      
-                  defaultValue={`https://encurtei.pk/${code}`}
+                  defaultValue={vars.HOST_APP + code}
                   ref={(input) => this.inputURL = input}
                 />
                 <InputGroup.Append>
@@ -79,7 +81,7 @@ class HomePage extends React.Component {
                 </InputGroup.Append>
               </InputGroup>
                   <p>
-                    Para acompar as estatisticas acesse https://encurtei.tk/{code}
+                    Para acompar as estatisticas, acesse {vars.HOST_APP + code}/stats
                   </p>
                   
                 </>

@@ -4,6 +4,8 @@ import { Container } from 'react-bootstrap';
 
 
 import ShortenerService from '../../services/shortenerService';
+import vars from '../../configs/vars';
+// import vars from '../../configs/vars'
 
 import { parseISO, formatRelative} from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
@@ -27,8 +29,8 @@ class StatsPage extends React.Component {
   
     try {
       const service = new ShortenerService();
-      const shortenedURL = await service.
-      getStats(code);
+      const shortenedURL = await service
+      .getStats(code);
   
       const parsedDate = parseISO(shortenedURL.updatedAt)
       const currentDate = new Date()
@@ -58,7 +60,7 @@ class StatsPage extends React.Component {
           </StatsContainer>
         ) : (
             <StatsContainer className="text-center">
-              <p><b>https://encurtei.tk/{shortenedURL.code}</b></p>
+              <p><b>{vars.HOST_APP + shortenedURL.code}</b></p>
               <p>Redireciona para:<br />{shortenedURL.url}</p>
               <StatsRow>
                 <StatsBox>
