@@ -15,7 +15,7 @@ class ShortenerSevice {
   }
 
   async generate(model) {
-    const result = await this.api.post('links', model)
+    const result = await this.api.post('links', model);
 
      return result.data;
   }
